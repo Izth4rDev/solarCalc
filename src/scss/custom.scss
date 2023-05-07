@@ -1,0 +1,41 @@
+//imports necesarios para generar estilos custom
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+$theme-colors: map-remove($theme-colors, "info", "light", "dark");
+
+// colores custom del proyecto
+$custom-colors: ( 
+    "colorPaleta1":       #FFC300,
+    "colorPaleta2":       #0DADFF,
+    "colorPaleta3":       #127CB3
+);
+
+// Mezcla de colores con los temas
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+//Espaciadores custom
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 5,
+  7: $spacer * 6,
+  8: $spacer * 9,
+  9: $spacer * 12,
+  10: $spacer *14
+);
+
+//Estilos navbar
+$navbar-light-color:#127CB3;
+$navbar-light-icon-color:#127CB3;
+$navbar-light-toggler-icon-bg:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+$navbar-light-toggler-border-color:#127CB3;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
