@@ -1,0 +1,83 @@
+[   
+  {
+    "id": "0",
+    "nombre": "Metropolitana de Santiago",
+    "factorPlanta":"0.16"
+  },
+  {
+    "id": "1",
+    "nombre": "Tarapacá",
+    "factorPlanta":"0.22"
+  },
+  {
+    "id": "2",
+    "nombre": "Antofagasta",
+    "factorPlanta":"0.22"
+  },
+  {
+    "id": "3",
+    "nombre": "Atacama",
+    "factorPlanta":"0.20"
+  },
+  {
+    "id": "4",
+    "nombre": "Coquimbo",
+    "factorPlanta":"0.20"
+  },
+  {
+    "id": "5",
+    "nombre": "Valparaíso",
+    "factorPlanta":"0.18"
+  },
+  {
+    "id": "6",
+    "nombre": "Libertador General Bernardo O'Higgins",
+    "factorPlanta":"0.16"
+  },
+  {
+    "id": "7",
+    "nombre": "Maule",
+    "factorPlanta":"0.16"
+  },
+  {
+    "id": "8",
+    "nombre": "Biobío",
+    "factorPlanta":"0.15"
+  },
+  {
+    "id": "9",
+    "nombre": "La Araucanía",
+    "factorPlanta":"0.14"
+  },
+  {
+    "id": "10",
+    "nombre": "Los Lagos",
+    "factorPlanta":"0.12"
+  },
+  {
+    "id": "11",
+    "nombre": "Aysén",
+    "factorPlanta":"0.14"
+  },
+  {
+    "id": "12",
+    "nombre": "Magallanes y de la Antártica Chilena",
+    "factorPlanta":"0.13"
+  },
+  {
+    "id": "14",
+    "nombre": "Los Ríos",
+    "factorPlanta":"0.13"
+  },
+  {
+    "id": "15",
+    "nombre": "Arica y Parinacota",
+    "factorPlanta":"0.22"
+  },
+  {
+    "id": "16",
+    "nombre": "Ñuble",
+    "factorPlanta":"0.16"
+  }
+
+]

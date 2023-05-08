@@ -3,7 +3,6 @@
         <div id="content_container">
             <div class="msg_container">
                 <img id="logo_img" src="../assets/img/logoEmergeSolar.png" alt="">
-                <!-- <h1 id="form_login_main_tittle"><span id="form_login_main_tittle_letter">E</span>merge Solar</h1> -->
                 <h2 id="form_login_sec_tittle">Vuelvete eficiente</h2>
             </div>
             <form id="form_container" @submit.prevent="registerUser">
@@ -20,8 +19,8 @@
                     <p class="colorMsgError">{{ msg }}</p>
                 </div>
                 <div id="form_login_buttonsContainer">
-                    <button class="form_login_button" @click="goToLogin">Volver</button>
                     <button class="form_login_button">Registrarse</button>
+                    <button class="form_login_button" @click="goToLogin">Volver</button>
                 </div>
             </form> 
         </div>

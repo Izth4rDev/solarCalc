@@ -36,7 +36,7 @@
             <div id="banner_calcula" class="text-colorPaleta3">
                 <h1 class="pt-5"> <span class="text-colorPaleta1 ">B</span>rindale un valor añadido a tu hogar/habitacion</h1>
                 <div class="d-flex flex-column flex-md-row align-items-center justify-content-around py-5">
-                    <button type="button" class="btn btn-colorPaleta1 text-colorPaleta3 fw-bold py-3 px-5 order-2 order-md-1">Calcular</button>
+                    <button type="button" class="btn btn-colorPaleta1 text-colorPaleta3 fw-bold py-3 px-5 order-2 order-md-1 mt-5" @click="goToCalc">Calcular</button>
                     <div class="order-1 order-md-2">
                         <p class="fs-4 fw-bold  text-colorPaleta3 my-0">Genera tu propia energía limpia y renovable,<br><span class="text-colorPaleta2">reduce tus costos de energía y contribuye a la lucha contra el cambio climático.</span></p>
                         <p class="fs-3 fw-bold  text-colorPaleta3 my-0">!<span class="fs-2 text-colorPaleta1">Calcula</span> el valor aproximado de tu proximo proyecto <span class="fs-2 text-colorPaleta1">fotovoltaico</span>!</p>
@@ -46,7 +46,18 @@
         </section>
     </main>
 </template>
+<script>
 
+ import router from '@/router';
+
+export default{
+    methods:{
+        goToCalc(){
+            router.push('/calcView')
+        }
+    }
+}
+</script>
 <style scoped>
     h1{
         font-size:2rem;
