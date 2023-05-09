@@ -57,4 +57,9 @@ $navbar-light-icon-color:#127CB3;
 $navbar-light-toggler-icon-bg:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 $navbar-light-toggler-border-color:#127CB3;
 
+$form-check-input-checked-color:#FFC300;
+$form-check-input-checked-border-color:   #0DADFF;
+$form-check-input-checked-bg-color:       #0DADFF;
+$form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>");
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
