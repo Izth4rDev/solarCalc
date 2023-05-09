@@ -5,6 +5,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     usuarioConectado: '',
+    userStorage:'',
     usuarioEstado: false,
     logoutEstado: false,
     nroFamilias: 0,
@@ -19,10 +20,14 @@ export default createStore({
   mutations: {
     getUsuarioConectado(state,payload){
       state.usuarioConectado = payload
-      console.log( state.usuarioConectado);
+      localStorage.setItem('usuario', JSON.stringify(state.usuarioConectado));
     },
     limpiarUsuarioConectado(state){
       state.usuarioConectado = '';
+      localStorage.setItem('usuario', JSON.stringify(state.usuarioConectado));
+    },
+    getUsuarioStorage(state){
+      state.userStorage = JSON.parse(localStorage.getItem('usuario'));
     },
     cambiarLogoutEstado(state){
       state.logoutEstado = !state.logoutEstado;

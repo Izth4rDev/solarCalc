@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
+import  ServiceView from '../views/ServicesView.vue';
 import calcView from '../views/calcView.vue';
 import calcView1 from '../components/calcView1.vue';
 import calcView2 from '../components/calcView2.vue';
@@ -23,6 +24,11 @@ const routes = [
     path:'/register',
     name:'register',
     component:RegisterView
+  },
+  {
+    path:'/service',
+    name:'service',
+    component:ServiceView
   },
   //Calculadora
   {
