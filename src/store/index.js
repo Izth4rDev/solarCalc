@@ -9,8 +9,10 @@ export default createStore({
     logoutEstado: false,
     nroFamilias: 0,
     regionesDeChile:[],
+    consumoAnualcalculado: 0,
     potenciaSolar:0,
-    espacioPaneles: 0
+    espacioPaneles: 0,
+    precioAproximado: null
   },
   getters: {
   },
@@ -29,15 +31,25 @@ export default createStore({
       state.nroFamilias = payload
       console.log(state.nroFamilias);
     },
+    setConsumoAnual(state,payload){
+      state.consumoAnualcalculado = payload;
+    },
      //resultado del calculo de potencia solar fotovoltaica
     setPsf(state, payload){
       state.potenciaSolar = payload;
+      console.log(state.potenciaSolar)
+      state.potenciaSolar = Math.ceil(payload);
       console.log(state.potenciaSolar)
     },
     //resultado del calculo de espacio necesario para instalacion de paneles solares
     setEspacioPanel(state, payload){
       state.espacioPaneles = payload;
       console.log(state.espacioPaneles);
+    },
+    setPrecio(state, payload){
+      console.log('en store' + payload);
+      state.precioAproximado = payload;
+      console.log('en store'+state.precioAproximado.costoMinimo);
     },
     actualizaRegiones(state, resultado ){
       state.regionesDeChile = resultado;
