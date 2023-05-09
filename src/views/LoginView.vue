@@ -19,8 +19,8 @@
                     <p class="colorMsgError">{{ msg }}</p>
                 </div>
                 <div id="form_login_buttonsContainer">
-                    <button class="form_login_button" @click="goToRegister">Registrar</button>
                     <button class="form_login_button">Login</button>
+                    <button class="form_login_button" @click="goToRegister">Registrar</button>
                 </div>
             </form> 
         </div>
@@ -142,25 +142,25 @@ export default{
                 });
             } 
         },
-    cambiaEstilo(input){
-  
-        if(input==='mail'){
+        cambiaEstilo(input){
+    
+            if(input==='mail'){
 
-            if(this.loginForm.email === ''){
-            this.cambiaShadowMail = true;
-            }else{
-            this.cambiaShadowMail = false
-            }
+                if(this.loginForm.email === ''){
+                this.cambiaShadowMail = true;
+                }else{
+                this.cambiaShadowMail = false
+                }
 
-        }else if(input==='pass'){
+            }else if(input==='pass'){
 
-            if(this.loginForm.password === ''){
-            this.cambiaShadowPass = true;
-            }else{
-            this.cambiaShadowPass = false
+                if(this.loginForm.password === ''){
+                this.cambiaShadowPass = true;
+                }else{
+                this.cambiaShadowPass = false
+                }
             }
         }
-    }
     },
     mounted(){
         auth.onAuthStateChanged((user) => {
