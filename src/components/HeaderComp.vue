@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
+import { mapMutations, mapState, mapActions } from 'vuex';
 import logoutModal from '../components/LogoutButton.vue'
 
 export default{
@@ -42,12 +42,14 @@ export default{
     },
     methods:{
         ...mapMutations(['getUsuarioStorage']),
+        ...mapActions(['extraer']),
         logout(){
             
         }
     },
     created(){
         this.getUsuarioStorage();
+        this.extraer();
     }
 }
 </script>

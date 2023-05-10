@@ -1,5 +1,7 @@
 //import { parseQuery } from 'vue-router';
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/services/auth.service";
 //import axios from 'axios';
 
 export default createStore({
@@ -13,7 +15,10 @@ export default createStore({
     consumoAnualcalculado: 0,
     potenciaSolar:0,
     espacioPaneles: 0,
-    precioAproximado: null
+    precioAproximado: null,
+    agenda:[],
+    usd:'',
+    uf:''
   },
   getters: {
   },
@@ -57,9 +62,21 @@ export default createStore({
       console.log('en store'+state.precioAproximado.costoMinimo);
     },
     actualizaRegiones(state, resultado ){
-      state.regionesDeChile = resultado;
+      state.regionesDeChile = [...resultado];
+    },
+    setAgenda(state, querySnapshot){
+      state.agenda = [];
+      querySnapshot.forEach((doc) => {
+        state.agenda.push(Object.assign({}, doc.data(), { id: doc.id }));
+      });
+      console.log('en set agenda');
+      console.log(state.agenda);
+    },
+    setCurrency(state,valor){
+      state.usd = valor.dolar.valor;
+      state.uf = valor.uf.valor;
+      console.log(state.usd+' '+state.uf);
     }
-
   },
   actions: {
     async obtenerRegion({commit}){
@@ -72,6 +89,25 @@ export default createStore({
         const resultado = await response.json();
         commit('actualizaRegiones', resultado);
 
+      }catch(error){
+        console.log(error);
+      }
+    },
+    async extraer({commit}) {
+      const querySnapshot = await getDocs(collection(db, "agenda"));
+      console.log(querySnapshot)
+      commit('setAgenda', querySnapshot);
+    },
+    //API REST valores moneda
+    async valorCurrency({commit}){
+      try{
+        const response = await fetch('https://mindicador.cl/api');
+        if(!response){
+          throw new Error("No se pudo obtener los valores de las monedas");
+        }
+        const valor = await response.json();
+        console.log(valor);
+        commit('setCurrency',valor);
       }catch(error){
         console.log(error);
       }

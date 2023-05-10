@@ -19,14 +19,15 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     }
     header{
-        background-color: #0DADFF;
+        padding: 0.2rem;
+        background-color: #519cc2;
         color:#FFC300;
         border-radius: 15px;
     }
     footer{
         display: flex;
         justify-content: space-around;
-        background-color:  rgb(13, 173, 255);
+        background-color: #519cc2;
         border-radius: 15px;
         margin-top:2rem;
         padding:0.5rem 0;
