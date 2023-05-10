@@ -14,12 +14,12 @@
                 <router-link class="nav-link nav_item mx-3" to="/home">Nosotros</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link nav_item mx-3" to="/home">Servicios</router-link>
+                <router-link class="nav-link nav_item mx-3" to="/service">Servicios</router-link>
             </li>
         </ul>
         <div class="d-flex justify-content-center" role="search">
             <span class="navbar-text me-3">
-                {{ usuarioConectado }}
+                {{ userStorage }}
             </span>
             <logout-modal></logout-modal>
         </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapMutations, mapState, mapActions } from 'vuex';
 import logoutModal from '../components/LogoutButton.vue'
 
 export default{
@@ -38,12 +38,18 @@ export default{
         logoutModal
     },
     computed:{
-        ...mapState(['usuarioConectado'])
+        ...mapState(['userStorage'])
     },
     methods:{
+        ...mapMutations(['getUsuarioStorage']),
+        ...mapActions(['extraer']),
         logout(){
             
         }
+    },
+    created(){
+        this.getUsuarioStorage();
+        this.extraer();
     }
 }
 </script>

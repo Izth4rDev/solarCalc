@@ -43,7 +43,7 @@
                 </table>
             </div>
             <h2 class="fs-5 fw-bold text-colo">¿Necesitas asesoria?</h2>
-            <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="backPage">Agendar</button>
+            <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="goService">Agendar</button>
             <template v-slot:footer>
                 <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="backPage">Atras</button>
                 <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="endCalc">Finalizar</button>  
@@ -70,10 +70,13 @@ import { mapState } from 'vuex';
         },
         methods:{
             endCalc(){
-                router.push({ name:'home' })
+                router.push({ name:'home' });
             },
             backPage(){
-                router.push({ name:'calcView3' })
+                router.push({ name:'calcView3' });
+            },
+            goService(){
+                router.push({name:'service'});
             },
             formatCLP(){
                 const {costoMinimo, costoMedio} = this.precioAproximado;

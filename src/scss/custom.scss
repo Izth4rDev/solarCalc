@@ -8,7 +8,7 @@ $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 // colores custom del proyecto
 $custom-colors: ( 
     "colorPaleta1":       #FFC300,
-    "colorPaleta2":       #0DADFF,
+    "colorPaleta2":       #519cc2,
     "colorPaleta3":       #127CB3
 );
 
@@ -32,15 +32,15 @@ $spacers: (
   10: $spacer *14
 );
 
-$font-size-base:              1rem;
+$font-size-base: 1rem;
 
-$h1-font-size:                $font-size-base * 2.5;
-$h2-font-size:                $font-size-base * 2;
-$h3-font-size:                $font-size-base * 1.75;
-$h4-font-size:                $font-size-base * 1.5;
-$h5-font-size:                $font-size-base * 1.25;
-$h6-font-size:                $font-size-base;
-$h7-font-size:                $font-size-base * 0.85;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+$h7-font-size: $font-size-base * 0.85;
 
 $font-sizes: (
   1: $h1-font-size,
@@ -56,5 +56,10 @@ $navbar-light-color:#127CB3;
 $navbar-light-icon-color:#127CB3;
 $navbar-light-toggler-icon-bg:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 $navbar-light-toggler-border-color:#127CB3;
+//Estilos radio Buttons
+$form-check-input-checked-color:#FFC300;
+$form-check-input-checked-border-color:   #0DADFF;
+$form-check-input-checked-bg-color:       #0DADFF;
+$form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>");
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
