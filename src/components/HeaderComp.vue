@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar bg-light navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"> <img src="../assets/img/logoEmergeSolar.png" id="logo_img" alt=""> </a>
+        <a class="navbar-brand" href="#"> <img src="../assets/img/logoEmergeSolar.png" id="logo_img" alt="" @click="goHome"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,10 +11,13 @@
                 <router-link class="nav-link nav_item mx-3" to="/home">Home</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="nav-link nav_item mx-3" to="/home">Nosotros</router-link>
+                <router-link class="nav-link nav_item mx-3" to="/nosotros">Nosotros</router-link>
             </li>
             <li class="nav-item">
                 <router-link class="nav-link nav_item mx-3" to="/service">Servicios</router-link>
+            </li>
+            <li v-if="userStorage ==='administrador@a.com'" class="nav-item">
+                <router-link class="nav-link nav_item mx-3" to="/administracion">Administración</router-link>
             </li>
         </ul>
         <div class="d-flex justify-content-center" role="search">
@@ -32,7 +35,7 @@
 <script>
 import { mapMutations, mapState, mapActions } from 'vuex';
 import logoutModal from '../components/LogoutButton.vue'
-
+import router from '@/router';
 export default{
     components:{
         logoutModal
@@ -43,8 +46,8 @@ export default{
     methods:{
         ...mapMutations(['getUsuarioStorage']),
         ...mapActions(['extraer']),
-        logout(){
-            
+        goHome(){
+            router.push('/home');
         }
     },
     created(){
