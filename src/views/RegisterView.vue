@@ -89,7 +89,8 @@ methods: {
         console.log("Usuario registrado correctamente");
         this.error = false;
         this.msg = 'Usuario registrado correctamente';
-        this.$store.state.estado === false;
+        //que no pase por el logout
+        this.$store.state.estado = false;
         router.push('/');
         // Aquí puedes redirigir al usuario a la página de inicio de sesión o hacer algo más
       })
@@ -98,8 +99,17 @@ methods: {
         this.manage = true;
         this.cambiaShadowMail = true;
         this.cambiaShadowPass = true;
-        this.msg = 'ha ocurrido un problema'
-        console.log("Error al registrar usuario", error);
+        //que no pase por el logout
+        this.$store.state.estado = false;
+        // Capturar el mensaje de error específico
+        if (error.code === 'auth/email-already-in-use') {
+          this.msg = "El correo electrónico ya está en uso por otra cuenta";
+          this.stateMsg = true;
+        } else {
+          console.error("Error al registrar usuario:", error.message);
+          this.msg = 'ha ocurrido un problema';
+          this.stateMsg = true;
+        }
         // Aquí puedes mostrar un mensaje de error al usuario
       });
     }
@@ -129,6 +139,7 @@ methods: {
   },
   goBack(){
     //cambio el estado para que no muestre el mensaje de logout 
+    this.$store.state.estado = false;
     router.push('/');
   }
 }

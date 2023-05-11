@@ -1,7 +1,8 @@
 //import { parseQuery } from 'vue-router';
 import { createStore } from 'vuex';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, setDoc, doc, deleteDoc} from "firebase/firestore";
 import { db } from "@/services/auth.service";
+import Swal from 'sweetalert2';
 //import axios from 'axios';
 
 export default createStore({
@@ -17,6 +18,8 @@ export default createStore({
     espacioPaneles: 0,
     precioAproximado: null,
     agenda:[],
+    agendaEditar:'',
+    agendaBorrar:'',
     usd:'',
     uf:''
   },
@@ -63,6 +66,7 @@ export default createStore({
     },
     actualizaRegiones(state, resultado ){
       state.regionesDeChile = [...resultado];
+      console.log(state.regionesDeChile);
     },
     setAgenda(state, querySnapshot){
       state.agenda = [];
@@ -76,13 +80,20 @@ export default createStore({
       state.usd = valor.dolar.valor;
       state.uf = valor.uf.valor;
       console.log(state.usd+' '+state.uf);
+    },
+    setEditAgenda(state,payload){
+      state.agendaEditar = payload;
+    },
+    setDelAgenda(state, payload){
+      state.agendaBorrar = payload;
+      console.log(state.agendaBorrar)
     }
   },
   actions: {
     async obtenerRegion({commit}){
       try {
         const response = await fetch('../../regiones.json');
-
+        console.log('desde obtener gion'+response)
         if(!response.ok){
           throw new Error("No se pudo obtener el archivo de datos");
         }
@@ -93,11 +104,75 @@ export default createStore({
         console.log(error);
       }
     },
+    //Metodos del CRUD hacia FireStore
     async extraer({commit}) {
       const querySnapshot = await getDocs(collection(db, "agenda"));
       console.log(querySnapshot)
       commit('setAgenda', querySnapshot);
     },
+    async insertar(context, payload){
+      //metodo de insersion 
+      await setDoc(doc(db, "agenda", payload.id), {
+        direccion: payload.direccion,
+        fecha:payload.fecha,
+        hora:payload.hora,
+        nombre: payload.nombre,
+        telefono: payload.telefono,
+        user:payload.user,
+        region: payload.region,
+        tipo:payload.tipo
+      })
+      .then(() => {
+      //promesa ejecutada correctamente
+      //mensaje de exito del registro
+        Swal.fire({
+        title: 'Agenda registrada',
+        text: 'exitoso!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showCancelButton: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //this.$store.commit('extraer');
+          console.log(result);
+        }
+      });
+      })
+      .catch((error) => {
+      // Ha ocurrido un error al insertar el documento
+      console.error("Error al insertar el documento:", error);
+      });
+    },
+    async borrarAgenda(context, payload){
+      
+      await deleteDoc(doc(db, "agenda", payload))
+      .then(() => {
+        //promesa ejecutada correctamente
+        //mensaje de exito del registro
+          Swal.fire({
+          title: 'Curso eliminado!',
+          text: 'Exitoso!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          allowOutsideClick: false,
+          allowEscapeKey: true,
+          allowEnterKey: true,
+          showCancelButton: false
+        }).then((result) => {
+          if (result.isConfirmed) {
+            //volvemos a cargar los cursos de la bd
+            //this.$store.commit('extraer');
+          }
+        });
+        })
+        .catch((error) => {
+        // Ha ocurrido un error al insertar el documento
+        console.error("Error al insertar el documento:", error);
+        });
+      },
     //API REST valores moneda
     async valorCurrency({commit}){
       try{

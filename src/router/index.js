@@ -3,11 +3,14 @@ import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import  ServiceView from '../views/ServicesView.vue';
+import  AdminView from '../views/AdmAgenda.vue';
 import calcView from '../views/calcView.vue';
 import calcView1 from '../components/calcView1.vue';
 import calcView2 from '../components/calcView2.vue';
 import calcView3 from '../components/calcView3.vue';
 import calcViewResult from '../components/calcViewResult.vue';
+import NotFound from '../views/NotFound.vue';
+
 
 const routes = [
   {
@@ -29,6 +32,31 @@ const routes = [
     path:'/service',
     name:'service',
     component:ServiceView
+  },
+  {
+    path:'/administracion',
+    name:'administracion',
+    component:AdminView,
+    beforeEnter: (to, from, next) => {
+      //const user = auth.currentUser;// obtener el usuario actual de firebase
+      //obtengo el usuario del localStorage 
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+      if (usuario === '') {
+        // si no hay un usuario actual, redirigir a la página de inicio de sesión
+        console.log('no hay usuario');
+        next({ name: "Login" });
+      } else if (usuario=== "administrador@a.com") {
+
+        console.log('usuario administrador');
+        // si el correo electrónico del usuario actual coincide con el correo del administrador permitir el acceso
+        next();
+      } else {
+        // si el correo electrónico no coincide, redirigir a una página de acceso denegado
+        console.log('correo no coincide')
+        next({ name: "home" });
+      }
+    }
   },
   //Calculadora
   {
@@ -58,6 +86,7 @@ const routes = [
       }
     ]
   },
+  { path: '/:catchAll(.*)', component: NotFound }
   
 ]
 

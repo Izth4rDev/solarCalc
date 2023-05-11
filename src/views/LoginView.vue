@@ -120,8 +120,7 @@ export default{
                     showCancelButton: false
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        router.push('/home');
-                    //this.redirectToHomePage();
+                        this.redirectToHomePage();
                     }
                 });
             }else if(action==='logout'){
@@ -136,11 +135,21 @@ export default{
                     showCancelButton: false
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        router.push('/')
-                        //this.redirectToLogin();
+                        this.redirectToLogin();
                     }
                 });
             } 
+        },
+        //Redireccion de rutas
+        redirectToHomePage() {
+            if(this.usuarioConectado === 'administrador@a.com'){
+               router.push('/administracion');
+            }else{
+                router.push('/home');
+            }
+        },
+        redirectToLogin() {
+            router.push('/');
         },
         cambiaEstilo(input){
     
@@ -177,6 +186,7 @@ export default{
                 //console.log(this.$store.state.estado);
                 //verifica que efectivamente sea un logout 
                 console.log('en el logout'+this.logoutEstado)
+                
                 if(this.logoutEstado === true){
                     // Usuario ha cerrado sesión
                     console.log("El usuario ha cerrado sesión");

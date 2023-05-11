@@ -1,11 +1,11 @@
 <template>        
     <main>
-        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center my-3">
-            <section class="m-2 bg-colorPaleta2 p-2 rounded flex-1">
+        <div class="d-flex flex-column flex-md-row justify-content-center align-items-start mt-5 mb-6">
+            <section class="m-2 bg-colorPaleta2 p-2 rounded flex-1 service_section">
                 <img src="" alt="">
                 <h1 class="text-colorPaleta1">Servicio Online</h1>
                 <h2 class="text-light">¿De que trata?</h2>
-                <article class="border border-secondary-subtle rounded p-3 text-light">
+                <article class="border border-secondary-subtle rounded p-3 text-light fixed-height">
                     <p class="text-center">Nuestra asesoría remota en proyectos de energía solar te brinda todo el conocimiento y la experiencia
                                     <br>necesaria para llevar a cabo una implementación exitosa de esta tecnología limpia y sostenible. <br>Ofrecemos
                                      servicios personalizados que incluyen:</p>
@@ -28,11 +28,11 @@
                     :is-presencial="false"
                 ></agendar-comp>
             </section>
-            <section article class="m-2 bg-colorPaleta3 p-2 rounded align-self-stretch">
+            <section article class="m-2 bg-colorPaleta3 p-2 rounded align-self-stretch ">
                 <img src="" alt="">
                 <h1 class="text-colorPaleta1">Servicio Presencial</h1>
                 <h2 class="text-light">¿De que trata?</h2>
-                <article class="border border-secondary-subtle rounded p-3 text-light">
+                <article class="border border-secondary-subtle rounded p-3 text-light fixed-height">
                     <p class="text-center">
                         Nuestra asesoría presencial en proyectos de energía solar ofrece un enfoque personalizado y directo.<br>
                         Evaluamos tu proyecto, diseñamos el sistema, brindamos asesoramiento en: </p>
@@ -103,5 +103,22 @@ export default{
 }
 </script>
 
-<style>     
+<style>
+.fixed-height{
+  
+  height: 350px; /* Puedes ajustar esta altura según tus necesidades */
+
+}
+
+@media (max-width: 1488px) {
+  .fixed-height {
+    height: 400px; 
+  }
+}
+
+@media (max-width: 831px) {
+  .fixed-height {
+    height: 450px; 
+  }
+}
 </style>
