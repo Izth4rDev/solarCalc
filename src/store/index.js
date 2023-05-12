@@ -1,6 +1,7 @@
 //import { parseQuery } from 'vue-router';
 import { createStore } from 'vuex';
-import { collection, getDocs, setDoc, doc, deleteDoc} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { collection, getDocs, setDoc, doc} from "firebase/firestore";
 import { db } from "@/services/auth.service";
 import Swal from 'sweetalert2';
 //import axios from 'axios';
@@ -145,7 +146,7 @@ export default createStore({
       // Ha ocurrido un error al insertar el documento
       console.error("Error al insertar el documento:", error);
       });
-    },
+    },/*
     async borrarAgenda(context, payload){
       
       await deleteDoc(doc(db, "agenda", payload))
@@ -172,7 +173,40 @@ export default createStore({
         // Ha ocurrido un error al insertar el documento
         console.error("Error al insertar el documento:", error);
         });
-      },
+      }*/ 
+    async borrarAgenda(context, payload){
+      try {
+        // Obtener el token de autenticación
+        const auth = getAuth();
+        const user = auth.currentUser;
+        const token = await user.getIdToken();
+    
+        // Obtener el ID del documento que deseas eliminar
+        const documentoId = payload;
+    
+        // Construir la URL de la solicitud de eliminación
+        const url = `https://firestore.googleapis.com/v1/projects/solarcalcuser/databases/(default)/documents/agenda/${documentoId}`;
+    
+        // Realizar la solicitud de eliminación a la API REST de Firestore
+        const response = await fetch(url, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if(response.ok){
+          console.log('documento borrado');
+        }else{
+          console.log('ocurrio un error');
+        }
+            // Resto del código para manejar la respuesta de la API REST
+        // ...
+      } catch (error) {
+        // Manejo de errores
+        // ...
+      }
+    },
     //API REST valores moneda
     async valorCurrency({commit}){
       try{

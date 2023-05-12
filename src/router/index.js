@@ -9,6 +9,7 @@ import calcView1 from '../components/calcView1.vue';
 import calcView2 from '../components/calcView2.vue';
 import calcView3 from '../components/calcView3.vue';
 import calcViewResult from '../components/calcViewResult.vue';
+import NosotrosView from '../views/AboutUs.vue';
 import NotFound from '../views/NotFound.vue';
 
 
@@ -32,6 +33,11 @@ const routes = [
     path:'/service',
     name:'service',
     component:ServiceView
+  },
+  {
+    path:'/nosotros',
+    name:'nosotros',
+    component:NosotrosView
   },
   {
     path:'/administracion',
