@@ -167,7 +167,7 @@ export default createStore({
             Authorization: `Bearer ${token}`,
           },
         });
-        
+
         if(response.ok){
           Swal.fire({
             title: 'Agenda eliminada!',
