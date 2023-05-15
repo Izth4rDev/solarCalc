@@ -3,7 +3,6 @@
         <div id="content_container">
             <div class="msg_container">
                 <img id="logo_img" src="../assets/img/logoEmergeSolar.png" alt="">
-                <!-- <h1 id="form_login_main_tittle"><span id="form_login_main_tittle_letter">E</span>merge Solar</h1> -->
                 <h2 id="form_login_sec_tittle">Vuelvete eficiente</h2>
             </div>
             <form id="form_container" @submit.prevent="login">
@@ -111,7 +110,7 @@ export default{
             if(action==='login'){
                 Swal.fire({
                     title: 'Iniciado sesión',
-                    text: 'You clicked the button!',
+                    text: 'Gracias!!',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     allowOutsideClick: false,
@@ -126,7 +125,7 @@ export default{
             }else if(action==='logout'){
                 Swal.fire({
                     title: 'sesion cerrada',
-                    text: 'You clicked the button!',
+                    text: 'Vuelve pronto',
                     icon: 'success',
                     confirmButtonText: 'OK',
                     allowOutsideClick: false,
@@ -178,12 +177,9 @@ export default{
                 console.log("El usuario ha iniciado sesión:", user.email);
                 // Cargar información del usuario en tu store o en tus datos locales
                 this.getUsuarioConectado(user.email);
-                // this.$store.commit('cargarUsuario', user.email);
-                // this.$store.state.estado = false;
                 this.cambiarLogoutEstado();
                 this.showAlert('login');
             }else {
-                //console.log(this.$store.state.estado);
                 //verifica que efectivamente sea un logout 
                 console.log('en el logout'+this.logoutEstado)
                 
@@ -191,7 +187,6 @@ export default{
                     // Usuario ha cerrado sesión
                     console.log("El usuario ha cerrado sesión");
                     // Limpiar información del usuario en tu store o en tus datos locales
-                    //this.$store.commit('limpiarUsuario')
                     this.limpiarUsuarioConectado();
                     // Redirigir a la página de inicio de sesión
                     this.showAlert('logout');

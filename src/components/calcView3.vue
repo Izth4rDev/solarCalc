@@ -45,7 +45,8 @@
             }
         },
         computed:{
-            ...mapState(['potenciaSolar'])
+            ...mapState(['potenciaSolar']),
+            ...mapState(['nroFamilias'])
         },
         methods:{
             ...mapMutations(['setEspacioPanel']),
@@ -58,7 +59,7 @@
                 router.push({ name:'calcViewResult' })
             },
             backPage(){
-                router.push({ name:'calcView2' })
+                router.push(`/calcView2/${this.nroFamilias}`);
             },
             calcularEspacio(){
                 const resultado = this.potenciaSolar * this.selectedoption;

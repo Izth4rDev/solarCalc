@@ -4,6 +4,8 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 
 $theme-colors: map-remove($theme-colors, "info", "light", "dark");
+$colorPaleta1:#FFC300;
+$colorPaleta2: #519cc2;
 
 // colores custom del proyecto
 $custom-colors: ( 
@@ -58,8 +60,14 @@ $navbar-light-toggler-icon-bg:url("data:image/svg+xml,<svg xmlns='http://www.w3.
 $navbar-light-toggler-border-color:#127CB3;
 //Estilos radio Buttons
 $form-check-input-checked-color:#FFC300;
-$form-check-input-checked-border-color:   #0DADFF;
-$form-check-input-checked-bg-color:       #0DADFF;
+$form-check-input-checked-border-color:   #519cc2;
+$form-check-input-checked-bg-color:       #519cc2;
 $form-check-radio-checked-bg-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>");
+//Estilos inputs
+$input-focus-box-shadow: red;
+
+input:focus {
+  box-shadow: $input-focus-box-shadow;
+}
 
 @import "../../node_modules/bootstrap/scss/bootstrap";

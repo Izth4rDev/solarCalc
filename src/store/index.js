@@ -112,7 +112,7 @@ export default createStore({
       commit('setAgenda', querySnapshot);
     },
     async insertar(context, payload){
-      //metodo de insersion 
+      //Metodo de insersion 
       await setDoc(doc(db, "agenda", payload.id), {
         direccion: payload.direccion,
         fecha:payload.fecha,
@@ -124,8 +124,8 @@ export default createStore({
         tipo:payload.tipo
       })
       .then(() => {
-      //promesa ejecutada correctamente
-      //mensaje de exito del registro
+      //Promesa ejecutada correctamente
+      //Mensaje de exito del registro
         Swal.fire({
         title: 'Agenda registrada',
         text: 'exitoso!',
@@ -137,8 +137,8 @@ export default createStore({
         showCancelButton: false
       }).then((result) => {
         if (result.isConfirmed) {
-          //this.$store.commit('extraer');
-          console.log(result);
+          //volvemos a cargar los cursos de la bd
+          context.dispatch('extraer');
         }
       });
       })
@@ -146,34 +146,7 @@ export default createStore({
       // Ha ocurrido un error al insertar el documento
       console.error("Error al insertar el documento:", error);
       });
-    },/*
-    async borrarAgenda(context, payload){
-      
-      await deleteDoc(doc(db, "agenda", payload))
-      .then(() => {
-        //promesa ejecutada correctamente
-        //mensaje de exito del registro
-          Swal.fire({
-          title: 'Curso eliminado!',
-          text: 'Exitoso!',
-          icon: 'success',
-          confirmButtonText: 'OK',
-          allowOutsideClick: false,
-          allowEscapeKey: true,
-          allowEnterKey: true,
-          showCancelButton: false
-        }).then((result) => {
-          if (result.isConfirmed) {
-            //volvemos a cargar los cursos de la bd
-            //this.$store.commit('extraer');
-          }
-        });
-        })
-        .catch((error) => {
-        // Ha ocurrido un error al insertar el documento
-        console.error("Error al insertar el documento:", error);
-        });
-      }*/ 
+    },
     async borrarAgenda(context, payload){
       try {
         // Obtener el token de autenticación
@@ -185,7 +158,7 @@ export default createStore({
         const documentoId = payload;
     
         // Construir la URL de la solicitud de eliminación
-        const url = `https://firestore.googleapis.com/v1/projects/solarcalcuser/databases/(default)/documents/agenda/${documentoId}`;
+        const url = `https://firestore.googleapis.com/v1/projects/solarcalcuser/databases/(default)/documents/agenda/${documentoId}`; //se pasa el id por url
     
         // Realizar la solicitud de eliminación a la API REST de Firestore
         const response = await fetch(url, {
@@ -194,17 +167,28 @@ export default createStore({
             Authorization: `Bearer ${token}`,
           },
         });
-
+        
         if(response.ok){
-          console.log('documento borrado');
+          Swal.fire({
+            title: 'Agenda eliminada!',
+            text: 'Exitoso!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            allowOutsideClick: false,
+            allowEscapeKey: true,
+            allowEnterKey: true,
+            showCancelButton: false
+          }).then((result) => {
+            if (result.isConfirmed) {
+              //Volvemos a cargar los cursos de la bd
+              context.dispatch('extraer');
+            }
+          });
         }else{
           console.log('ocurrio un error');
         }
-            // Resto del código para manejar la respuesta de la API REST
-        // ...
       } catch (error) {
-        // Manejo de errores
-        // ...
+        console.log(error)
       }
     },
     //API REST valores moneda

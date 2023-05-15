@@ -76,7 +76,7 @@ const routes = [
         component:calcView1
       },
       {
-        path:'/calcView2',
+        path:'/calcView2/:nro', //paso de parametro por URL//
         name:'calcView2',
         component:calcView2
       },

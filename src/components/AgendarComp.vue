@@ -55,10 +55,13 @@
                   </div>
               </form>
             </div>
-              <div class="modal-footer bg-colorPaleta2">
-                  <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal" @click="newAgendar">Agendar</button>
-              </div> 
+            <div v-if="stateMsg">
+                <span class="text-danger">{{ error }}</span>
+            </div>
+            <div class="modal-footer bg-colorPaleta2">
+                <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" @click="newAgendar">Agendar</button>
+            </div> 
         </div>
     </div>
   </div>
@@ -69,18 +72,21 @@ import { getCurrentInstance } from 'vue';
 import { mapState, mapActions } from 'vuex';
 
 export default {
+  //Props desde componente padre
   props: ['user', 'service', 'isOnline', 'isPresencial'],
   data(){
     return{
-        userMail: this.user,
-        nombre:'',
-        direccion:'',
-        telefono:'',
-        fecha:'',
-        hora: '',
-        newId: '0000',
-        tipo: this.service,
-        regionSelecionada:''
+      userMail: this.user,
+      nombre:'',
+      direccion:'',
+      telefono:'',
+      fecha:'',
+      hora: '',
+      newId: '0000',
+      tipo: this.service,
+      regionSelecionada:0,
+      stateMsg:false,
+      error: ''
     }
   },
   computed: {
@@ -95,7 +101,7 @@ export default {
   methods:{
     ...mapActions(['insertar']),
     newAgendar(){
-      
+       //genera id "unico"
        this.newId = Date.now().toString();
        
       const data = {
@@ -110,9 +116,27 @@ export default {
         region: this.regionSelecionada.nombre
       }
 
+      //validacion sencilla del formulario
+      if(this.nombre === '' || this.direccion ==='' || this.telefono ==='' || this.fecha ==='' || this.hora === '' ||this.regionSelecionada == 0){
+        this.stateMsg = true;
+        this.error =  'Todos los campos son obligatorios';
+        return;
+      }
+
+      this.stateMsg = false;
+      this.resetForm();
       this.insertar(data)
      
-  },
+    },
+    resetForm() {
+      // Restablecer los datos del formulario a sus valores iniciales
+      this.nombre = '';
+      this.direccion = '';
+      this.regionSelecionada = '0';
+      this.telefono = '';
+      this.fecha = '';
+      this.hora = '';
+    }
   }
 }
 </script>

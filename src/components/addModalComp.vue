@@ -52,10 +52,13 @@
                       <input type="time" class="form-control" name="hora" id="hora" v-model="hora">
                   </div>
               </form>
+              <div v-if="stateMsg">
+                <span class="text-danger">{{ error }}</span>
+            </div>
             </div>
               <div class="modal-footer bg-colorPaleta2">
                   <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal" @click="newAgendar">Agregar</button>
+                  <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" @click="newAgendar">Agregar</button>
               </div> 
         </div>
     </div>
@@ -76,7 +79,10 @@ export default {
         hora: '',
         newId: '0000',
         tipo:'',
-        regionSelecionada:0
+        regionSelecionada:0,
+        stateMsg: false,
+        error:''
+
         }
     },
     computed:{
@@ -100,9 +106,30 @@ export default {
                 tipo:this.tipo,
                 region: this.regionSelecionada.nombre
             }
+
+            //validacion sencilla del formulario
+            if(this.nombre === '' || this.direccion ==='' || this.telefono ==='' || this.fecha ==='' || this.hora === '' ||this.regionSelecionada == 0 || this.tipo === 0 || this.user === ''){
+                this.stateMsg = true;
+                this.error =  'Todos los campos son obligatorios';
+                return;
+            }
+            
+            this.stateMsg = false;
+            this.resetForm();
             this.insertar(data);
             this.extraer();
 
+        },
+        resetForm() {
+        // Restablecer los datos del formulario a sus valores iniciales
+            this.nombre = '';
+            this.direccion = '';
+            this.regionSelecionada = '0';
+            this.telefono = '';
+            this.fecha = '';
+            this.hora = '';
+            this.tipo = '0';
+            this.user = '';
         }
     }
 }

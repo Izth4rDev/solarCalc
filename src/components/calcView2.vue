@@ -15,7 +15,7 @@
                 </div>
             </article>
             <div class="border border-secondary-subtle rounded w-70 w-md-50 p-3 my-4">
-                <div v-for="n in this.nroFamilias" :key="n" class="d-flex justify-content-center align-items-center my-1">
+                <div v-for="n in transformNroUrl" :key="n" class="d-flex justify-content-center align-items-center my-1">
                     <label :for="'input-' + n" class="form-label me-2 text-colorPaleta3">Familia {{ n }}</label>
                     <input type="text" class="form-control input_text_item" :id="'input-' + n" v-model="familias[n-1]" placeholder="Kwh anual">
                 </div>
@@ -27,9 +27,12 @@
                     </select>
                 </div>
             </div>
+            <div v-if="stateMsg">
+                <span class="text-danger">{{ error }}</span>
+            </div>
             <template v-slot:footer>
                     <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="backPage">Atras</button>
-                    <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="nextPage">Siguiente</button>  
+                    <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="nextPage">Siguiente</button> 
             </template>
           </slot-calc>
     </div>
@@ -45,33 +48,56 @@ export default{
         modalBoleta
     },
     data() {
-            return {
-            familias: Array.from({ length: this.nroFamilias }, () => ''), //crea un array llamado familias de largo this.nroFamilias y vacio
-            consumoAnual:0,
-            factorPlanta: null,
-            regionSelecionada:0 ,
-            factorPlantaSeleccionado:null
+        return {
+        familias:[], //crea un array llamado familias de largo this.nroFamilias y vacio
+        consumoAnual:0,
+        factorPlanta: null,
+        regionSelecionada:0 ,
+        factorPlantaSeleccionado:null,
+        stateMsg: false,
+        error: '',
         };
     },
     computed:{
-        ...mapState(['nroFamilias']),
         ...mapState(['regionesDeChile']),
+        //tranformar a numero el parametro por URL
+        transformNroUrl(){
+            return parseInt(this.$route.params.nro)
+        }
     },
     methods:{
         ...mapMutations(['setConsumoAnual']),
         ...mapActions(['obtenerRegion']),
         ...mapMutations(['setPsf']),
         setFactorPlanta(){
-            console.log(parseFloat(this.regionSelecionada.factorPlanta));
             const {factorPlanta} = this.regionSelecionada; //destructuring requerido por la rubrica
             this.factorPlantaSeleccionado = parseFloat(factorPlanta);
         },
         nextPage(){
-            this.familias.forEach((element)=>{
-                this.consumoAnual= this.consumoAnual + parseFloat(element)
+            //Validacion de campos// 
+            //array method que retorna true si todos los elementos dentro cumplen la condicion
+            const inputsValidos = this.familias.every((element) => {
+                return element.trim() !== ''
             });
+            //si los inputs estan vacios retorna error
+            console.log(this.regionSelecionada)
+            if (!inputsValidos || this.regionSelecionada == 0) {
+                this.stateMsg = true;
+                this.error =  'Todos los campos son obligatorios';
+                return;
+
+            }
+
+            this.stateMsg = false;
+            //calculo: suma de los consumos
+            this.familias.forEach((element)=>{
+                this.consumoAnual= this.consumoAnual + parseFloat(element);
+            });
+
             this.setConsumoAnual(this.consumoAnual);
+            //metodo calculo de nro de paneles
             this.calcularPSF();
+
             router.push({ name:'calcView3' });
         },
         backPage(){
@@ -89,6 +115,12 @@ export default{
     created(){
         //Obtenemos las regiones del Json a traves del store
         this.obtenerRegion();
+        // Inicializamos familias con la longitud esperada y elementos vacíos
+        this.familias = Array.from({ length: this.nroFamilias }, () => ''); 
+        console.log(this.nroFamilias);
+    },
+    mounted(){
+        console.log(this.familias.length);
     }
 }
 </script>
