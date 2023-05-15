@@ -1,12 +1,12 @@
 <template>
     <nav class="navbar bg-light navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container-fluid align-items-center">
         <a class="navbar-brand" href="#"> <img src="../assets/img/logoEmergeSolar.png" id="logo_img" alt="" @click="goHome"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-4 mb-lg-0">
             <li class="nav-item">
                 <router-link class="nav-link nav_item mx-3" to="/home">Home</router-link>
             </li>
@@ -19,7 +19,12 @@
             <li v-if="userStorage ==='administrador@a.com'" class="nav-item">
                 <router-link class="nav-link nav_item mx-3" to="/administracion">Administración</router-link>
             </li>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-colorPaleta1 text-colorPaleta3 fw-bold" @click="goToCalc">Calculadora</button>
+            </div>
+           
         </ul>
+        
         <div class="d-flex justify-content-center" role="search">
             <span class="navbar-text me-3">
                 {{ userStorage }}
@@ -48,6 +53,10 @@ export default{
         ...mapActions(['extraer']),
         goHome(){
             router.push('/home');
+        },
+        goToCalc(){
+        console.log('hola')
+        router.push('/calcView')
         }
     },
     created(){

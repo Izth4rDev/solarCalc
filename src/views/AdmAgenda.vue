@@ -37,6 +37,7 @@
         </table>
     </div>
  <footer-view></footer-view>
+ 
   </template>
 
   <script>

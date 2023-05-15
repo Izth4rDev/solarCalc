@@ -56,10 +56,13 @@
                       <input type="time" class="form-control" name="hora" id="hora" v-model="agendaEditar.hora">
                   </div>
               </form>
+              <div v-if="stateMsg">
+                <span class="text-danger">{{ error }}</span>
+              </div>
             </div>
               <div class="modal-footer bg-colorPaleta2">
                   <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1" data-bs-dismiss="modal" @click="actualizarAgenda">Editar</button>
+                  <button type="button" class="btn btn-colorPaleta3 text-colorPaleta1"  @click="actualizarAgenda">Editar</button>
               </div> 
         </div>
     </div>
@@ -71,6 +74,12 @@ import { mapState, mapActions } from 'vuex';
 
 export default{
     emits: ['llenarModalForm'],
+    data(){
+      return{
+        stateMsg:false,
+        error:'',
+      }
+    },
     computed:{
       ...mapState(['agendaEditar']),
       ...mapState(['regionesDeChile'])
@@ -96,6 +105,15 @@ export default{
           region: this.agendaEditar.region,
           tipo:this.agendaEditar.tipo,
         }
+
+        //validacion sencilla del formulario
+        if(this.agendaEditar.nombre === '' || this.agendaEditar.direccion ==='' || this.agendaEditar.telefono ==='' || this.agendaEditar.fecha ==='' || this.agendaEditar.hora === '' || this.agendaEditar.region == 0 || this.agendaEditar.tipo == 0){
+          this.stateMsg = true;
+          this.error =  'Todos los campos son obligatorios';
+          return;
+        }
+
+        this.stateMsg = false;
         this.insertar(data);
         this.extraer();
 

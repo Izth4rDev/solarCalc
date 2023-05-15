@@ -17,6 +17,9 @@
                     </div>
                     <p class="fs-7 fst-italic text-colorPaleta3">Si solo sera su familia presione el boton siguiente</p>
                 </div>
+                <div v-if="stateMsg">
+                <span class="text-danger">{{ error }}</span>
+                </div>
             </article>
             <template v-slot:footer>
                 <button class="btn btn-colorPaleta3 text-colorPaleta1 fw-bold mx-2" @click="goHome">Home</button>
@@ -33,14 +36,21 @@ import { mapMutations } from 'vuex';
     name: 'calcView1',
     data(){
         return{
-            familyNumber: 1
+            familyNumber: 1,
+            stateMsg: false,
+            error: '',
         }
     },
     methods:{
         ...mapMutations(['setNroFamilias']),
         nextPage(){
-            router.push({ name:'calcView2' });
+            if(this.familyNumber <= 0 ){
+                this.stateMsg = true;
+                this.error = 'El valor del campo debe ser mayor a 0';
+                return;
+            }
             this.setNroFamilias(this.familyNumber);
+            router.push(`/calcView2/${this.familyNumber}`);
         },
         goHome(){
             router.push({ name:'home' })

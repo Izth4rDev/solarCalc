@@ -23,6 +23,7 @@ body{
 }
 
 #app {
+  font-family: 'Lato';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

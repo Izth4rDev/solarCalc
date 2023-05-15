@@ -1,6 +1,7 @@
 //import { parseQuery } from 'vue-router';
 import { createStore } from 'vuex';
-import { collection, getDocs, setDoc, doc, deleteDoc} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { collection, getDocs, setDoc, doc} from "firebase/firestore";
 import { db } from "@/services/auth.service";
 import Swal from 'sweetalert2';
 //import axios from 'axios';
@@ -111,7 +112,7 @@ export default createStore({
       commit('setAgenda', querySnapshot);
     },
     async insertar(context, payload){
-      //metodo de insersion 
+      //Metodo de insersion 
       await setDoc(doc(db, "agenda", payload.id), {
         direccion: payload.direccion,
         fecha:payload.fecha,
@@ -123,8 +124,8 @@ export default createStore({
         tipo:payload.tipo
       })
       .then(() => {
-      //promesa ejecutada correctamente
-      //mensaje de exito del registro
+      //Promesa ejecutada correctamente
+      //Mensaje de exito del registro
         Swal.fire({
         title: 'Agenda registrada',
         text: 'exitoso!',
@@ -136,8 +137,8 @@ export default createStore({
         showCancelButton: false
       }).then((result) => {
         if (result.isConfirmed) {
-          //this.$store.commit('extraer');
-          console.log(result);
+          //volvemos a cargar los cursos de la bd
+          context.dispatch('extraer');
         }
       });
       })
@@ -147,32 +148,49 @@ export default createStore({
       });
     },
     async borrarAgenda(context, payload){
-      
-      await deleteDoc(doc(db, "agenda", payload))
-      .then(() => {
-        //promesa ejecutada correctamente
-        //mensaje de exito del registro
+      try {
+        // Obtener el token de autenticación
+        const auth = getAuth();
+        const user = auth.currentUser;
+        const token = await user.getIdToken();
+    
+        // Obtener el ID del documento que deseas eliminar
+        const documentoId = payload;
+    
+        // Construir la URL de la solicitud de eliminación
+        const url = `https://firestore.googleapis.com/v1/projects/solarcalcuser/databases/(default)/documents/agenda/${documentoId}`; //se pasa el id por url
+    
+        // Realizar la solicitud de eliminación a la API REST de Firestore
+        const response = await fetch(url, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        if(response.ok){
           Swal.fire({
-          title: 'Curso eliminado!',
-          text: 'Exitoso!',
-          icon: 'success',
-          confirmButtonText: 'OK',
-          allowOutsideClick: false,
-          allowEscapeKey: true,
-          allowEnterKey: true,
-          showCancelButton: false
-        }).then((result) => {
-          if (result.isConfirmed) {
-            //volvemos a cargar los cursos de la bd
-            //this.$store.commit('extraer');
-          }
-        });
-        })
-        .catch((error) => {
-        // Ha ocurrido un error al insertar el documento
-        console.error("Error al insertar el documento:", error);
-        });
-      },
+            title: 'Agenda eliminada!',
+            text: 'Exitoso!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            allowOutsideClick: false,
+            allowEscapeKey: true,
+            allowEnterKey: true,
+            showCancelButton: false
+          }).then((result) => {
+            if (result.isConfirmed) {
+              //Volvemos a cargar los cursos de la bd
+              context.dispatch('extraer');
+            }
+          });
+        }else{
+          console.log('ocurrio un error');
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
     //API REST valores moneda
     async valorCurrency({commit}){
       try{

@@ -9,6 +9,7 @@ import calcView1 from '../components/calcView1.vue';
 import calcView2 from '../components/calcView2.vue';
 import calcView3 from '../components/calcView3.vue';
 import calcViewResult from '../components/calcViewResult.vue';
+import NosotrosView from '../views/AboutUs.vue';
 import NotFound from '../views/NotFound.vue';
 
 
@@ -32,6 +33,11 @@ const routes = [
     path:'/service',
     name:'service',
     component:ServiceView
+  },
+  {
+    path:'/nosotros',
+    name:'nosotros',
+    component:NosotrosView
   },
   {
     path:'/administracion',
@@ -70,7 +76,7 @@ const routes = [
         component:calcView1
       },
       {
-        path:'/calcView2',
+        path:'/calcView2/:nro', //paso de parametro por URL//
         name:'calcView2',
         component:calcView2
       },
