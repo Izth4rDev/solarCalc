@@ -57,6 +57,17 @@ Estructura vue CLI mediante componentes y SPA
 ![componente:AdmAgenda.vue](src/assets/img/readmeImg/punto6rubrica.png)<br/>
 [src/views/AdmAgenda.vue](src/views/AdmAgenda.vue) --linea 51/56--
 
+## 7- Utilizacion de los metodos del ciclo de vida de un componente
+Se implemento el uso de ciclo de vida mounted/created en algunos de los componentes
+![componente:LoginView.vue](src/assets/img/readmeImg/punto7rubrica.png)<br/>
+[src/views/LoginView.vue](src/views/LoginView.vue) --linea 173--
+
+## 8-Comunicacion entre componentes
+Se utilizo tanto emits como props en alguno de los componentes
+![componente:BodyService.vue](src/assets/img/readmeImg/punto8rubrica1.png)<br/>
+[src/components/BodyService.vue](src/components/BodyService.vue) --linea 57--<br/>
+![componente:editionModalComp.vue](src/assets/img/readmeImg/punto8rubrica2.png)<br/>
+[src/components/editionModalComp.vue](src/components/edition.vueModalComp) --linea 92--
 
 ## Project setup
 ```
