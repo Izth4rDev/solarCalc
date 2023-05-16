@@ -11,6 +11,7 @@ Desarrollar una plataforma que le permita al usuario, conocer datos fundamentale
 fotovoltaico como lo son los paneles solares.
 
 ## Requerimientos del sistema
+## Requerimientos del sistema
 -El usuario sera capaz de registrarse en la plataforma (correo y contraseña).
 -El usuario sera capaz de logearse con su cuenta de usuario.
 -El usuario al iniciar sesion tendra la opción de iniciar una calculadora interactiva en la que podra calcular:
@@ -36,7 +37,7 @@ los modulos principales son: Login/pagina de administracion/Calculadora/Agendar 
 de forma adicional se presento la funcionalidad de enviar un correo al usuario cuando este agenda una asesoria.
 
 ##3 - Utilización de tags html
-En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como <main> <article> <section> <figcaption><div><img><ul><li><nav><header><footer>. 
+En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como: main/article/section/figcaption/div/img/ul/li/nav/header/footer. 
 
 ##4 - Responsividad
 El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de 
