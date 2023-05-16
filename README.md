@@ -69,6 +69,21 @@ Se utilizo tanto emits como props en alguno de los componentes
 ![componente:editionModalComp.vue](src/assets/img/readmeImg/punto8rubrica2.png)<br/>
 [src/components/editionModalComp.vue](src/components/edition.vueModalComp) --linea 92--
 
+## 9-Utilizacion de buenas practicas en la definicion de rutas
+Nombres descriptivos para las rutas  
+![router:index.js](src/assets/img/readmeImg/punto9rubrica1.png)<br/>
+[src/router/index.js](src/router/index.js) --linea 17/n--<br/>
+Estructura jerarquica  
+![router:index.js](src/assets/img/readmeImg/punto9rubrica2.png)<br/>
+[src/router/index.js](src/router/index.js) --linea 72--<br/>
+Parametro por URL  
+![router:index.js](src/assets/img/readmeImg/punto9rubrica3.png)<br/>
+[src/router/index.js](src/router/index.js) --linea 79--<br/>
+Rutas por defecto
+![router:index.js](src/assets/img/readmeImg/punto9rubrica4.png)<br/>
+[src/router/index.js](src/router/index.js) --linea 95--<br/>
+
+
 ## Project setup
 ```
 npm install
