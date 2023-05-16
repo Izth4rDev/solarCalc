@@ -80,7 +80,6 @@ export default{
                 return element.trim() !== ''
             });
             //si los inputs estan vacios retorna error
-            console.log(this.regionSelecionada)
             if (!inputsValidos || this.regionSelecionada == 0) {
                 this.stateMsg = true;
                 this.error =  'Todos los campos son obligatorios';
@@ -104,10 +103,8 @@ export default{
             router.push({ name:'calcView1' });
         },
         calcularPSF(){
-            console.log(`${this.consumoAnual}/(${this.factorPlantaSeleccionado} *365 *24)`);
             //Calculo potencia solar fotovoltaica (psv)
             const psf = this.consumoAnual/(this.factorPlantaSeleccionado*365*12);
-            console.log(psf);
             //seteo de state global de psv
             this.setPsf(psf);
         }
@@ -117,7 +114,6 @@ export default{
         this.obtenerRegion();
         // Inicializamos familias con la longitud esperada y elementos vacíos
         this.familias = Array.from({ length: this.nroFamilias }, () => ''); 
-        console.log(this.nroFamilias);
     },
     mounted(){
         console.log(this.familias.length);
