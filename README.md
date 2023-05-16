@@ -39,11 +39,14 @@ de forma adicional se presento la funcionalidad de enviar un correo al usuario c
 ## 3 - Utilización de tags html
 En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como: main/article/section/figcaption/div/img/ul/li/nav/header/footer. 
 ![componente:BodyHomeComp.vue](src/assets/img/readmeImg/punto3rubrica.png)
+![componente:BodyHomeComp.vue](src/components/BodyHomeComp.vue) -- Linea 1 --
 
 ## 4 - Responsividad
 El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de 
 media queries de css en la vista de LoginView.vue y comportamiento responsivo con bootstrap con la utilizacion de breakpoints, esto se puede visualizar en el componente BodyAboutUs linea 13-28-43.
+![componente:BodyHomeComp.vue](src/assets/img/readmeImg/punto4rubrica.png) 
 
+## 5-
 ## Project setup
 ```
 npm install
