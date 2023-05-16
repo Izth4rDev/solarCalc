@@ -36,10 +36,10 @@ Entregable posee todas las funcionalidades descritas en los requerimientos del s
 los modulos principales son: Login/pagina de administracion/Calculadora/Agendar asesoria.
 de forma adicional se presento la funcionalidad de enviar un correo al usuario cuando este agenda una asesoria.
 
-##3 - Utilización de tags html
+## 3 - Utilización de tags html
 En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como: main/article/section/figcaption/div/img/ul/li/nav/header/footer. 
 
-##4 - Responsividad
+## 4 - Responsividad
 El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de 
 media queries de css en la vista de LoginView.vue y comportamiento responsivo con bootstrap con la utilizacion de breakpoints, esto se puede visualizar en el componente BodyAboutUs linea 13-28-43.
 
