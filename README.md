@@ -25,6 +25,22 @@ fotovoltaico como lo son los paneles solares.
     -.Modificar una asesoria agendada.
 -La opcion de Admninistracion solo debe estar visible para la cuenta de administrador si un usuario intenta acceder
  esta accion le sera denegada.
+ -Creacion de base de datos nonSQL para guardar las agendas. 
+
+## 1 - Experiencia de uso
+EL Proyecto se encuentra sin errores de ejecucion en consola, como se podra observar en el inspector, no existen problemas de navegacion, la presentacion y aspecto del sitio quedara a criterio del evaluador.
+
+## 2 - Completitud del entregable
+Entregable posee todas las funcionalidades descritas en los requerimientos del sistema.
+los modulos principales son: Login/pagina de administracion/Calculadora/Agendar asesoria.
+de forma adicional se presento la funcionalidad de enviar un correo al usuario cuando este agenda una asesoria.
+
+##3 - Utilización de tags html
+En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como <main> <article> <section> <figcaption><div><img><ul><li><nav><header><footer>. 
+
+##4 - Responsividad
+El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de 
+media queries de css en la vista de LoginView.vue y comportamiento responsivo con bootstrap con la utilizacion de breakpoints, esto se puede visualizar en el componente BodyAboutUs linea 13-28-43.
 
 ## Project setup
 ```
