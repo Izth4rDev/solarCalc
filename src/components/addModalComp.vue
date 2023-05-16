@@ -41,7 +41,7 @@
                   </div>
                   <div class="mt-3">
                       <label for="email" class="form-label">Correo</label>
-                      <input type="email" v-model="user" name="email" class="form-control" id="email">
+                      <input type="email" v-model="userMail" name="email" class="form-control" id="email">
                   </div>
                   <div class="mt-3">
                       <label for="fecha" class="form-label">Escoje una fecha</label>
@@ -67,11 +67,12 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import emailjs from '@emailjs/browser';
 
 export default {
     data(){
         return{
-        user: '',
+        userMail: '',
         nombre:'',
         direccion:'',
         telefono:'',
@@ -102,19 +103,36 @@ export default {
                 hora:this.hora,
                 nombre: this.nombre,
                 telefono: this.telefono,
-                user:this.user,
+                user:this.userMail,
                 tipo:this.tipo,
                 region: this.regionSelecionada.nombre
             }
 
             //validacion sencilla del formulario
-            if(this.nombre === '' || this.direccion ==='' || this.telefono ==='' || this.fecha ==='' || this.hora === '' ||this.regionSelecionada == 0 || this.tipo === 0 || this.user === ''){
+            if(this.nombre === '' || this.direccion ==='' || this.telefono ==='' || this.fecha ==='' || this.hora === '' ||this.regionSelecionada == 0 || this.tipo === 0 || this.userMail === ''){
                 this.stateMsg = true;
                 this.error =  'Todos los campos son obligatorios';
                 return;
             }
             
             this.stateMsg = false;
+
+            //Envio de correo
+            this.mensajeMail = `has agendado un servicio ${this.tipo}\n Con fecha:${this.fecha}\n En el siguiente horario ${this.hora}`
+
+            //envio de correo
+            emailjs.send("service_tje7t6l","template_c8wqwuu",{
+                to_name: this.nombre,
+                from_name:'Emerge Solar',
+                message:this.mensajeMail,
+                mail: this.userMail
+            }, "YsQakJ05nx-YE4Tlj")
+            .then(() => {
+                alert('Correo Enviado, revisa tu bandeja de entrada');
+                }, (err) => {
+                alert(JSON.stringify(err));
+                });
+
             this.resetForm();
             this.insertar(data);
             this.extraer();
@@ -129,7 +147,7 @@ export default {
             this.fecha = '';
             this.hora = '';
             this.tipo = '0';
-            this.user = '';
+            this.userMail = '';
         }
     }
 }

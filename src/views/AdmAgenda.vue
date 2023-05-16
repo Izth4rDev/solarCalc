@@ -62,7 +62,7 @@
         methods:{
             ...mapMutations(['setEditAgenda']),
             ...mapActions(['obtenerRegion']),
-            ...mapMutations(['setDelAgenda'])
+            ...mapMutations(['setDelAgenda']),
         },
         mounted(){
             this.obtenerRegion();

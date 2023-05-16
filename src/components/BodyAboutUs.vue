@@ -12,7 +12,7 @@
         <div class="container-fluid mx-0 row bg-colorPaleta3 text-light py-4 justify-content-center">
             <div class="team-member col col-md-3">
                 <figure>
-                    <img src="../assets/img/equipo/nathy.webp" alt="" class="rounded-circle rounded-5">
+                    <img src="../assets/img/equipo/nathy2.webp" alt="" class="rounded-circle rounded-5">
                     <figcaption>
                         <ul>
                             <li>
@@ -27,7 +27,7 @@
             </div>
             <div class="team-member col col-md-3">
                 <figure>
-                    <img src="../assets/img/equipo/meli.webp" alt="" class="rounded-circle rounded-5">
+                    <img src="../assets/img/equipo/meli2.webp" alt="" class="rounded-circle rounded-5">
                     <figcaption>
                         <ul>
                             <li>
@@ -42,7 +42,7 @@
             </div>
             <div class="team-member col col-md-3">
                 <figure>
-                    <img src="../assets/img/equipo/migue.webp" alt="" class="rounded-circle rounded-5">
+                    <img src="../assets/img/equipo/migue2.webp" alt="" class="rounded-circle rounded-5">
                     <figcaption>
                         <ul>
                             <li>
@@ -57,10 +57,10 @@
                 </figure>
             </div>
         </div>
-        <div class="ontainer-fluid mx-0 row bg-light text-colorPaleta3 py-4 justify-content-center">
+        <div class="container-fluid mx-0 row  text-colorPaleta3 py-4 mt-4 justify-content-center">
             <div class="team-member col col-md-3">
                 <figure>
-                    <img src="../assets/img/equipo/romi.webp" alt="" class="rounded-circle rounded-5">
+                    <img src="../assets/img/equipo/romi2.webp" alt="" class="rounded-circle rounded-5">
                     <figcaption>
                         <ul>
                             <li>
@@ -74,7 +74,7 @@
             </div>
             <div class="team-member col col-md-3">
                 <figure>
-                    <img src="../assets/img/equipo/yessi.webp" alt="" class="rounded-circle rounded-5">
+                    <img src="../assets/img/equipo/yessi2.webp" alt="" class="rounded-circle rounded-5">
                     <figcaption>
                         <ul>
                             <li>
@@ -89,7 +89,7 @@
             </div>
             <div class="team-member col col-md-3">
                 <figure>
-                    <img src="../assets/img/equipo/gonzalo.webp" alt="" class="rounded-circle rounded-5">
+                    <img src="../assets/img/equipo/gonzalo2.webp" alt="" class="rounded-circle rounded-5">
                     <figcaption>
                         <ul>
                             <li>

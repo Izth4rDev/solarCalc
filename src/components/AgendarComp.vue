@@ -137,11 +137,11 @@ export default {
         mail: this.userMail
       }, "YsQakJ05nx-YE4Tlj")
       .then(() => {
-          alert('Correo Enviado, revisa tu bandeja de entrada');
+          console.log('Correo Enviado, revisa tu bandeja de entrada');
         }, (err) => {
           alert(JSON.stringify(err));
         });
-
+        
       this.resetForm();
       this.insertar(data)
       
