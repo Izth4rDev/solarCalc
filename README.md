@@ -84,9 +84,13 @@ Rutas por defecto
 [src/router/index.js](src/router/index.js) --linea 95--<br/>
 
 ## 10- Utilizacion de sintaxis basica JavaScript
-Se utiliza es6 en el proyecto en la gran mayoria de los componentes
-
-
+Utilizacion de declaracion de variables y metodos de formateo en javascript  
+![componente:BodyService.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
+[src/components/BodyService.vue](src/components/BodyService.vue) --linea 115/126--<br/>
+## 11- Utilizacion de Javascript es6/7 para resolver un problema
+Se utiliza es6 en el proyecto en la gran mayoria de los componentes   
+![componente:calcView2.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
+[src/components/index.js](src/components/calcView2.vue) --linea 72/88--<br/>
 
 ## Project setup
 ```
