@@ -80,7 +80,6 @@ export default{
                 return element.trim() !== ''
             });
             //si los inputs estan vacios retorna error
-            console.log(this.regionSelecionada)
             if (!inputsValidos || this.regionSelecionada == 0) {
                 this.stateMsg = true;
                 this.error =  'Todos los campos son obligatorios';

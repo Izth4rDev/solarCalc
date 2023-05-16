@@ -79,9 +79,13 @@ Estructura jerarquica
 Parametro por URL  
 ![router:index.js](src/assets/img/readmeImg/punto9rubrica3.png)<br/>
 [src/router/index.js](src/router/index.js) --linea 79--<br/>
-Rutas por defecto
+Rutas por defecto  
 ![router:index.js](src/assets/img/readmeImg/punto9rubrica4.png)<br/>
 [src/router/index.js](src/router/index.js) --linea 95--<br/>
+
+## 10- Utilizacion de sintaxis basica JavaScript
+Se utiliza es6 en el proyecto en la gran mayoria de los componentes
+
 
 
 ## Project setup
