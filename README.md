@@ -37,6 +37,7 @@ los modulos principales son: Login/pagina de administracion/Calculadora/Agendar 
 de forma adicional se presento la funcionalidad de enviar un correo al usuario cuando este agenda una asesoria.
 
 ## 3 - Utilización de tags html
+
 En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como: main/article/section/figcaption/div/img/ul/li/nav/header/footer. 
 
 ## 4 - Responsividad
