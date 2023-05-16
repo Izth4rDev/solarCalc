@@ -11,22 +11,20 @@ Desarrollar una plataforma que le permita al usuario, conocer datos fundamentale
 fotovoltaico como lo son los paneles solares.
 
 ## Requerimientos del sistema
-## Requerimientos del sistema
--El usuario sera capaz de registrarse en la plataforma (correo y contraseña).
--El usuario sera capaz de logearse con su cuenta de usuario.
--El usuario al iniciar sesion tendra la opción de iniciar una calculadora interactiva en la que podra calcular:
-    -.Precio aproximado de los paneles solares.
-    -.Espacio necesario para la instalacion de paneles solares.
-    -.Cantidad de paneles solares necesarios para suplir las necesidades del usuario.
-    -.Consumo total anual de el/los participantes.
--El usuario podra optar por regitrar una asesoria la cual puede ser presencial u online.
+-El usuario sera capaz de registrarse en la plataforma (correo y contraseña).<br/>
+-El usuario sera capaz de logearse con su cuenta de usuario.<br/>
+-El usuario al iniciar sesion tendra la opción de iniciar una calculadora interactiva en la que podra calcular:<br/>
+    -.Precio aproximado de los paneles solares.<br/>
+    -.Espacio necesario para la instalacion de paneles solares.<br/>
+    -.Cantidad de paneles solares necesarios para suplir las necesidades del usuario.<br/>
+    -.Consumo total anual de el/los participantes.<br/>
+-El usuario podra optar por regitrar una asesoria la cual puede ser presencial u online.<br/>
 -El sistema tendra una opcion especial para una cuenta de administrador el cual tendra acceso a:
-    -.Agendar una asesoria nueva.
-    -.Eliminar una asesoria agendada.
-    -.Modificar una asesoria agendada.
--La opcion de Admninistracion solo debe estar visible para la cuenta de administrador si un usuario intenta acceder
- esta accion le sera denegada.
- -Creacion de base de datos nonSQL para guardar las agendas. 
+    -.Agendar una asesoria nueva.<br/>
+    -.Eliminar una asesoria agendada.<br/>
+    -.Modificar una asesoria agendada.<br/>
+-La opcion de Admninistracion solo debe estar visible para la cuenta de administrador si un usuario intenta acceder esta accion le sera denegada.<br/>
+ -Creacion de base de datos nonSQL para guardar las agendas. <br/>
 
 ## 1 - Experiencia de uso
 EL Proyecto se encuentra sin errores de ejecucion en consola, como se podra observar en el inspector, no existen problemas de navegacion, la presentacion y aspecto del sitio quedara a criterio del evaluador.
@@ -86,12 +84,32 @@ Rutas por defecto
 ## 10- Utilizacion de sintaxis basica JavaScript
 Utilizacion de declaracion de variables y metodos de formateo en javascript
 ![componente:BodyService.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
-[src/components/BodyService.vue](src/components/BodyService.vue) --linea 73/88--<br/>
+[src/components/BodyService.vue](src/components/BodyService.vue) --linea 115/126--<br/>
+
 ## 11- Utilizacion de Javascript es6/7 para resolver un problema
 Se utiliza es6 en el proyecto en la gran mayoria de los componentes  
 ![componente:calcView2.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
-[src/components/index.js](src/components/calcView2.vue) --linea 73/88--<br/>
+[src/components/calcView2.vue](src/components/calcView2.vue) --linea 72/88--<br/>
+ 
+## 12- Consumo API
+Se utiliza el consumo de una API que proporciona los valores de indicadores economicos
+se manejan errores en cualquier caso
+![store:index.js](src/assets/img/readmeImg/punto12rubrica.png)<br/>
+[src/store/index.js](src/store/index.js) --linea 195--<br/>
 
+## 13-Estados internos de los componentes web
+Utilizacion de estado de objeto data dentro del componente(error/stateMsg)
+![componente:AgendarComp.vue](src/assets/img/readmeImg/punto13rubrica.png)<br/>
+[src/components/AgendarComp.vue](src/components/AgendarComp.vue) --linea 89/90--<br/>
+![componente:AgendarComp.vue](src/assets/img/readmeImg/punto13rubrica2.png)<br/>
+[src/components/AgendarComp.vue](src/components/AgendarComp.vue) --linea 58/60--<br/>
+
+## 14- Maneja el estado de la aplicación con Vuex
+Manejo de estados y consumo de servicio REST por medio de estructura de Vuex action
+![store:index.js](src/assets/img/readmeImg/punto12rubrica.png)<br/>
+[src/store/index.js](src/store/index.js) --linea 195--<br/>
+![store:index.js](src/assets/img/readmeImg/punto14rubrica.png)<br/>
+[src/store/index.js](src/store/index.js) --linea 80/84--<br/>
 ## Project setup
 ```
 npm install
