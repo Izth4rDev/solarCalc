@@ -49,8 +49,15 @@ media queries de css en la vista de LoginView.vue y comportamiento responsivo co
 
 ## 5-Utilizacion de un framework de css
 Se utilizo bootstrap en la gran mayoria del proyecto visualizado en componentes como el siguiente  
-[componente:calcView1.vue](src/assets/img/readmeImg/punto5rubrica.png)<br/>
-[src/views/calcView1.vue](src/views/calc1View.vue)
+![componente:calcView1.vue](src/assets/img/readmeImg/punto5rubrica.png)<br/>
+[src/components/calcView1.vue](src/views/calc1View.vue) --linea 9--
+
+## 6 -Código mantenible mediante componentes
+Estructura vue CLI mediante componentes y SPA  
+![componente:AdmAgenda.vue](src/assets/img/readmeImg/punto6rubrica.png)<br/>
+[src/views/AdmAgenda.vue](src/views/AdmAgenda.vue) --linea 51/56--
+
+
 ## Project setup
 ```
 npm install
