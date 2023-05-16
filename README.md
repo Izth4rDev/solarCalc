@@ -38,15 +38,26 @@ de forma adicional se presento la funcionalidad de enviar un correo al usuario c
 
 ## 3 - Utilización de tags html
 En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como: main/article/section/figcaption/div/img/ul/li/nav/header/footer. 
-![componente:BodyHomeComp.vue](src/assets/img/readmeImg/punto3rubrica.png)
+![componente:BodyHomeComp.vue](src/assets/img/readmeImg/punto3rubrica.png) <br/>
 [src/components/BodyHomeComp.vue](src/components/BodyHomeComp.vue)-- Linea 1 --
 
 ## 4 - Responsividad
 El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de 
 media queries de css en la vista de LoginView.vue y comportamiento responsivo con bootstrap con la utilizacion de breakpoints, esto se puede visualizar en el componente BodyAboutUs linea 13-28-43.
-![componente:BodyHomeComp.vue](src/assets/img/readmeImg/punto4rubrica.png) 
+![componente:LoginView.vue](src/assets/img/readmeImg/punto4rubrica.png)<br/> 
+[src/views/BodyHomeComp.vue](src/views/LoginView.vue)
 
-## 5-
+## 5-Utilizacion de un framework de css
+Se utilizo bootstrap en la gran mayoria del proyecto visualizado en componentes como el siguiente  
+![componente:calcView1.vue](src/assets/img/readmeImg/punto5rubrica.png)<br/>
+[src/components/calcView1.vue](src/views/calc1View.vue) --linea 9--
+
+## 6 -Código mantenible mediante componentes
+Estructura vue CLI mediante componentes y SPA  
+![componente:AdmAgenda.vue](src/assets/img/readmeImg/punto6rubrica.png)<br/>
+[src/views/AdmAgenda.vue](src/views/AdmAgenda.vue) --linea 51/56--
+
+
 ## Project setup
 ```
 npm install
