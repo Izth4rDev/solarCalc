@@ -70,6 +70,7 @@
 <script>
 import { getCurrentInstance } from 'vue';
 import { mapState, mapActions } from 'vuex';
+import emailjs from '@emailjs/browser';
 
 export default {
   //Props desde componente padre
@@ -86,7 +87,8 @@ export default {
       tipo: this.service,
       regionSelecionada:0,
       stateMsg:false,
-      error: ''
+      error: '',
+      mensajeMail: ''
     }
   },
   computed: {
@@ -124,8 +126,25 @@ export default {
       }
 
       this.stateMsg = false;
+       //construccion del mensaje de correo 
+      this.mensajeMail = `has agendado un servicio ${this.tipo}\n Con fecha:${this.fecha}\n En el siguiente horario ${this.hora}`
+
+      //envio de correo
+      emailjs.send("service_tje7t6l","template_c8wqwuu",{
+        to_name: this.nombre,
+        from_name:'Emerge Solar',
+        message:this.mensajeMail,
+        mail: this.userMail
+      }, "YsQakJ05nx-YE4Tlj")
+      .then(() => {
+          alert('Correo Enviado, revisa tu bandeja de entrada');
+        }, (err) => {
+          alert(JSON.stringify(err));
+        });
+
       this.resetForm();
       this.insertar(data)
+      
      
     },
     resetForm() {

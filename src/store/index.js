@@ -128,7 +128,7 @@ export default createStore({
       //Mensaje de exito del registro
         Swal.fire({
         title: 'Agenda registrada',
-        text: 'exitoso!',
+        text: 'exitoso! revisa tu correo',
         icon: 'success',
         confirmButtonText: 'OK',
         allowOutsideClick: false,
@@ -167,7 +167,7 @@ export default createStore({
             Authorization: `Bearer ${token}`,
           },
         });
-        
+
         if(response.ok){
           Swal.fire({
             title: 'Agenda eliminada!',
