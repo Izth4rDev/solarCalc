@@ -9,21 +9,21 @@ Desarrollar una plataforma que le permita al usuario, conocer datos fundamentale
 
 ## Requerimientos del sistema
     
-    • El usuario será capaz de registrarse en la plataforma (correo y contraseña).<br/>
-    • El usuario podrá iniciar sesión con su cuenta de usuario.<br/>
+    • El usuario será capaz de registrarse en la plataforma (correo y contraseña).
+    • El usuario podrá iniciar sesión con su cuenta de usuario.
     • El usuario al iniciar sesión tendrá la opción de iniciar una calculadora interactiva en la que podrá calcular:
-        ◦ Precio aproximado de los paneles solares.<br/>
-        ◦ Espacio necesario para la instalación de paneles solares.<br/>
-        ◦ Cantidad de paneles solares necesarios para suplir las necesidades del usuario.<br/>
-        ◦ Consumo total anual del/los participantes.<br/>
--El usuario podra optar por regitrar una asesoria la cual puede ser presencial u online.<br/>
--El sistema tendra una opcion especial para una cuenta de administrador el cual tendra acceso a:
-    -.Agendar una asesoria nueva.<br/>
-    -.Eliminar una asesoria agendada.<br/>
-    -.Modificar una asesoria agendada.<br/>
--La opcion de Admninistracion solo debe estar visible para la cuenta de administrador si un usuario intenta acceder esta accion le sera denegada.<br/>
- -Creacion de base de datos nonSQL para guardar las agendas. <br/>
-
+        ◦ Precio aproximado de los paneles solares.
+        ◦ Espacio necesario para la instalación de paneles solares.
+        ◦ Cantidad de paneles solares necesarios para suplir las necesidades del usuario.
+        ◦ Consumo total anual del/los participantes.
+    • El usuario podrá optar por registrar una asesoría la cual puede ser presencial u online.
+    • El sistema tendrá una opción especial para una cuenta de administrador, el cual tendrá acceso a:
+        ◦ Agendar una asesoría nueva.
+        ◦ Eliminar una asesoría agendada.
+        ◦ Modificar una asesoría agendada.
+    • La opción de Administración solo debe estar visible para la cuenta de administrador, si un usuario intenta acceder esta acción le será denegada.
+    • Creación de base de datos non SQL para guardar las agendas.
+    
 ## 1 - Experiencia de uso
 EL Proyecto se encuentra sin errores de ejecucion en consola, como se podra observar en el inspector, no existen problemas de navegacion, la presentacion y aspecto del sitio quedara a criterio del evaluador.
 
