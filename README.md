@@ -2,22 +2,20 @@
 Este es el archivo README del portafolio del proyecto solar-calc para optar por la insignia de talento digital.
 
 ## introducción
-Este proyecto es llamado solar-calc, abreviatura de calculadora solar, su funcion es generar una plataforma
-que permita a usuarios previamente registrados conocer aspectos importantes a la hora de montar un proyecto
-fotovoltaico
+Este proyecto es llamado solar-calc, abreviatura de calculadora solar, su función es generar una plataforma que permita a usuarios previamente registrados conocer aspectos importantes a la hora de montar un proyecto fotovoltaico.
 
 ## Requerimientos del usuario
-Desarrollar una plataforma que le permita al usuario, conocer datos fundamentales a la hora de montar un proyecto
-fotovoltaico como lo son los paneles solares.
+Desarrollar una plataforma que le permita al usuario, conocer datos fundamentales a la hora de montar un proyecto fotovoltaico como lo son los paneles solares.
 
 ## Requerimientos del sistema
--El usuario sera capaz de registrarse en la plataforma (correo y contraseña).<br/>
--El usuario sera capaz de logearse con su cuenta de usuario.<br/>
--El usuario al iniciar sesion tendra la opción de iniciar una calculadora interactiva en la que podra calcular:<br/>
-    -.Precio aproximado de los paneles solares.<br/>
-    -.Espacio necesario para la instalacion de paneles solares.<br/>
-    -.Cantidad de paneles solares necesarios para suplir las necesidades del usuario.<br/>
-    -.Consumo total anual de el/los participantes.<br/>
+    
+    • El usuario será capaz de registrarse en la plataforma (correo y contraseña).<br/>
+    • El usuario podrá iniciar sesión con su cuenta de usuario.<br/>
+    • El usuario al iniciar sesión tendrá la opción de iniciar una calculadora interactiva en la que podrá calcular:
+        ◦ Precio aproximado de los paneles solares.<br/>
+        ◦ Espacio necesario para la instalación de paneles solares.<br/>
+        ◦ Cantidad de paneles solares necesarios para suplir las necesidades del usuario.<br/>
+        ◦ Consumo total anual del/los participantes.<br/>
 -El usuario podra optar por regitrar una asesoria la cual puede ser presencial u online.<br/>
 -El sistema tendra una opcion especial para una cuenta de administrador el cual tendra acceso a:
     -.Agendar una asesoria nueva.<br/>
