@@ -24,63 +24,60 @@ Desarrollar una plataforma que le permita al usuario, conocer datos fundamentale
     • La opción de Administración solo debe estar visible para la cuenta de administrador, si un usuario intenta acceder esta acción le será denegada.
     • Creación de base de datos non SQL para guardar las agendas.
     
-## 1 - Experiencia de uso
-EL Proyecto se encuentra sin errores de ejecucion en consola, como se podra observar en el inspector, no existen problemas de navegacion, la presentacion y aspecto del sitio quedara a criterio del evaluador.
+## 1- Experiencia de uso
+El Proyecto se encuentra sin errores de ejecución en consola, como se podrá observar en el inspector, no existen problemas de navegación, la presentación y aspecto del sitio quedara a criterio del evaluador.
 
-## 2 - Completitud del entregable
-Entregable posee todas las funcionalidades descritas en los requerimientos del sistema.
-los modulos principales son: Login/pagina de administracion/Calculadora/Agendar asesoria.
-de forma adicional se presento la funcionalidad de enviar un correo al usuario cuando este agenda una asesoria.
+## 2-Completitud del entregable
+Entregable posee todas las funcionalidades descritas en los requerimientos del sistema. Los módulos principales son: Login/página de administración/Calculadora/Agendar asesoría. De forma adicional se presentó la funcionalidad de enviar un correo al usuario cuando este agenda una asesoría.
 
 ## 3 - Utilización de tags html
-En todos los componentes (que no son modales de bootstrap) se utiliza tags html con semantica acorde al standar HTML5 como: main/article/section/figcaption/div/img/ul/li/nav/header/footer.<br/>
+En todos los componentes (que no son modales de bootstrap) se utiliza tags HTML con semántica acorde al estándar HTML5 como: main/article/section/figcaption/div/img<br/>
 ![componente:BodyHomeComp.vue](src/assets/img/readmeImg/punto3rubrica.png) <br/>
 [src/components/BodyHomeComp.vue](src/components/BodyHomeComp.vue)-- Linea 1 --
 
-## 4 - Responsividad
-El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de 
-media queries de css en la vista de LoginView.vue y comportamiento responsivo con bootstrap con la utilizacion de breakpoints, esto se puede visualizar en el componente BodyAboutUs linea 13-28-43.<br/>
+## 4-Responsividad
+El proyecto es responsivo en su totalidad, se adapta a todo tipo de dispositivos, existe el uso de media queries de css en la vista de LoginView.vue y comportamiento responsivo con bootstrap con la utilización de breakpoints, esto se puede visualizar en el componente BodyAboutUs.<br/>
 ![componente:LoginView.vue](src/assets/img/readmeImg/punto4rubrica.png)<br/> 
-[src/views/BodyHomeComp.vue](src/views/LoginView.vue)
+[src/views/BodyHomeComp.vue](src/views/LoginView.vue) –-linea 13-28-43--
 
 ## 5-Utilizacion de un framework de css
-Se utilizo bootstrap en la gran mayoria del proyecto visualizado en componentes como el siguiente  
+Se utilizó bootstrap en la gran mayoría del proyecto visualizado en componentes como el siguiente.<br/>  
 ![componente:calcView1.vue](src/assets/img/readmeImg/punto5rubrica.png)<br/>
 [src/components/calcView1.vue](src/views/calc1View.vue) --linea 9--
 
-## 6 -Código mantenible mediante componentes
-Estructura vue CLI mediante componentes y SPA  
+## 6-Código mantenible mediante componentes
+Estructura vue CLI mediante componentes y SPA.<br/> 
 ![componente:AdmAgenda.vue](src/assets/img/readmeImg/punto6rubrica.png)<br/>
 [src/views/AdmAgenda.vue](src/views/AdmAgenda.vue) --linea 51/56--
 
-## 7- Utilizacion de los metodos del ciclo de vida de un componente
-Se implemento el uso de ciclo de vida mounted/created en algunos de los componentes
+## 7-Utilización de los métodos del ciclo de vida de un componente
+Se implementó el uso de ciclo de vida mounted/created en algunos de los componentes.<br/>
 ![componente:LoginView.vue](src/assets/img/readmeImg/punto7rubrica.png)<br/>
 [src/views/LoginView.vue](src/views/LoginView.vue) --linea 173--
 
-## 8-Comunicacion entre componentes
-Se utilizo tanto emits como props en alguno de los componentes
+## 8-Comunicación entre componentes
+Se utilizó tanto emits como props en alguno de los componentes.
 ![componente:BodyService.vue](src/assets/img/readmeImg/punto8rubrica1.png)<br/>
 [src/components/BodyService.vue](src/components/BodyService.vue) --linea 57--<br/>
 ![componente:editionModalComp.vue](src/assets/img/readmeImg/punto8rubrica2.png)<br/>
 [src/components/editionModalComp.vue](src/components/edition.vueModalComp) --linea 92--
 
-## 9-Utilizacion de buenas practicas en la definicion de rutas
-Nombres descriptivos para las rutas  
+## 9-Utilización de buenas prácticas en la definición de rutas
+Nombres descriptivos para las rutas<br/>
 ![router:index.js](src/assets/img/readmeImg/punto9rubrica1.png)<br/>
 [src/router/index.js](src/router/index.js) --linea 17/n--<br/>
-Estructura jerarquica  
+Estructura jerárquica</br> 
 ![router:index.js](src/assets/img/readmeImg/punto9rubrica2.png)<br/>
 [src/router/index.js](src/router/index.js) --linea 72--<br/>
-Parametro por URL  
+Parámetro por URL</br>  
 ![router:index.js](src/assets/img/readmeImg/punto9rubrica3.png)<br/>
 [src/router/index.js](src/router/index.js) --linea 79--<br/>
-Rutas por defecto  
+Rutas por defecto</br> 
 ![router:index.js](src/assets/img/readmeImg/punto9rubrica4.png)<br/>
 [src/router/index.js](src/router/index.js) --linea 95--<br/>
 
-## 10- Utilizacion de sintaxis basica JavaScript
-Utilizacion de declaracion de variables y metodos de formateo en javascript
+## 10-Utilización de sintaxis básica JavaScript
+Utilización de declaración de variables y métodos de formateo en javascript.<br/>
 ![componente:BodyService.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
 [src/components/BodyService.vue](src/components/BodyService.vue) --linea 115/126--<br/>
 
