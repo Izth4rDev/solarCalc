@@ -56,7 +56,7 @@ Se implementó el uso de ciclo de vida mounted/created en algunos de los compone
 [src/views/LoginView.vue](src/views/LoginView.vue) --linea 173--
 
 ## 8-Comunicación entre componentes
-Se utilizó tanto emits como props en alguno de los componentes.
+Se utilizó tanto emits como props en alguno de los componentes.<br/>
 ![componente:BodyService.vue](src/assets/img/readmeImg/punto8rubrica1.png)<br/>
 [src/components/BodyService.vue](src/components/BodyService.vue) --linea 57--<br/>
 ![componente:editionModalComp.vue](src/assets/img/readmeImg/punto8rubrica2.png)<br/>
@@ -81,30 +81,30 @@ Utilización de declaración de variables y métodos de formateo en javascript.<
 ![componente:BodyService.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
 [src/components/BodyService.vue](src/components/BodyService.vue) --linea 115/126--<br/>
 
-## 11- Utilizacion de Javascript es6/7 para resolver un problema
-Se utiliza es6 en el proyecto en la gran mayoria de los componentes  
+## 11- Utilización de Javascript es6/7 para resolver un problema
+Se utiliza es6 en el proyecto en la gran mayoría de los componentes.<br/>
 ![componente:calcView2.vue](src/assets/img/readmeImg/punto11rubrica.png)<br/>
 [src/components/calcView2.vue](src/components/calcView2.vue) --linea 72/88--<br/>
  
 ## 12- Consumo API
-Se utiliza el consumo de una API que proporciona los valores de indicadores economicos
-se manejan errores en cualquier caso
+Se usa el consumo de una API que proporciona los valores de indicadores económicos se manejan errores en cualquier caso.<br/>
 ![store:index.js](src/assets/img/readmeImg/punto12rubrica.png)<br/>
 [src/store/index.js](src/store/index.js) --linea 195--<br/>
 
 ## 13-Estados internos de los componentes web
-Utilizacion de estado de objeto data dentro del componente(error/stateMsg)
+Utilización de estado de objeto data dentro del componente(error/stateMsg).<br/>
 ![componente:AgendarComp.vue](src/assets/img/readmeImg/punto13rubrica.png)<br/>
 [src/components/AgendarComp.vue](src/components/AgendarComp.vue) --linea 89/90--<br/>
 ![componente:AgendarComp.vue](src/assets/img/readmeImg/punto13rubrica2.png)<br/>
 [src/components/AgendarComp.vue](src/components/AgendarComp.vue) --linea 58/60--<br/>
 
 ## 14- Maneja el estado de la aplicación con Vuex
-Manejo de estados y consumo de servicio REST por medio de estructura de Vuex action
+Manejo de estados y consumo de servicio REST por medio de estructura de Vuex action.</br>
 ![store:index.js](src/assets/img/readmeImg/punto12rubrica.png)<br/>
 [src/store/index.js](src/store/index.js) --linea 195--<br/>
 ![store:index.js](src/assets/img/readmeImg/punto14rubrica.png)<br/>
 [src/store/index.js](src/store/index.js) --linea 80/84--<br/>
+
 ## Project setup
 ```
 npm install
